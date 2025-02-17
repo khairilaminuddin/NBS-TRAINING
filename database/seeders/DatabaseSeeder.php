@@ -17,16 +17,20 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
-        User::truncate();
+        //User::truncate();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-        Student::factory(10)->create();
+        //User::factory()->create([
+           // 'name' => 'Test User',
+           // 'email' => 'test@example.com',
+        //]);
+        //Student::factory(10)->create();
+
+        //$this->call([
+        //    StaffSeeder::class,
+        //]);
 
         $this->call([
-            StaffSeeder::class,
+            StudentSeeder::class,
         ]);
     }
 }
