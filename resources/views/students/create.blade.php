@@ -23,8 +23,9 @@
         <label for="address">Address</label>
         <input type="text" name="address" id="address">
         <br>
+        <input type="hidden" name="is_final_year" value="0">
         <label for="is_final_year">Is Final Year</label>
-        <input type="checkbox" name="is_final_year" id="is_final_year">
+        <input type="checkbox" name="is_final_year" id="is_final_year" value="1">
         <br>
         <button type="submit">Submit</button>
     </form>
