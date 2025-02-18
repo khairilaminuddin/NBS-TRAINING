@@ -28,7 +28,11 @@
                 <td>{{ $student->is_final_year ? 'yes' : 'no' }}</td>
                 <td>
                     <a href="{{ route('students.edit', $student->id) }}">Edit</a>
-                    {{--<a href="{{ route('student.delete', $student->id) }}">Delete</a>--}}
+                    <form action="{{ route('students.destroy', $student->id) }}" method=post>
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Delete</button>
+                    </form>
                 </td>
             </tr>
         @endforeach
