@@ -26,10 +26,10 @@
                 <td>{{ $student->dob }}</td>
                 <td>{{ $student->address }}</td>
                 <td>{{ $student->is_final_year ? 'yes' : 'no' }}</td>
-                {{--<td>
-                    <a href="{{ route('student.edit', $student->id) }}">Edit</a>
-                    <a href="{{ route('student.delete', $student->id) }}">Delete</a>
-                </td>--}}
+                <td>
+                    <a href="{{ route('students.edit', $student->id) }}">Edit</a>
+                    {{--<a href="{{ route('student.delete', $student->id) }}">Delete</a>--}}
+                </td>
             </tr>
         @endforeach
     </table>
