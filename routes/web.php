@@ -1,22 +1,27 @@
 <?php
 
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 use App\Http\Controllers\StudentController;
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', function () {
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
 
-//Route::get('todos' , [App\Http\Controllers\TodoController::class, 'index']);
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
+});
 
-//Route::resources(['users' => App\Http\Controllers\UserController::class,]);
-
-Route::get('/',[StudentController::class,'index'])->name('students.index');
-Route::get('/create',[StudentController::class,'create'])->name('students.create');
-Route::post('/store',[StudentController::class,'store'])->name('students.store');
-Route::get('/edit/{student}',[StudentController::class,'edit'])->name('students.edit');
-Route::put('/update/{student}',[StudentController::class,'update'])->name('students.update');
-Route::get('/show/{student}',[StudentController::class,'show'])->name('students.show');
-Route::delete('/destroy/{student}',[StudentController::class,'destroy'])->name('students.destroy');
-
-
+Route::resource ('/students', StudentController::class);
