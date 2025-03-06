@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Inertia\Response;
+
 
 class StudentController extends Controller
 {
@@ -12,7 +15,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('students.index', [
+        return Inertia::render('students/index', [
             'students' => Student::all()
         ]);
     }
