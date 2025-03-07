@@ -14,12 +14,6 @@
     <p>DOB: {{ $student->dob }}</p>
     <p>Address: {{ $student->address }}</p>
     <p>Is_final_year: {{ $student->Is_final_year }}</p>
-    {{--<a href="{{ route('students.edit', $cat->id) }}">Edit</a>
-    <form action="{{ route('students.destroy', $cat->id) }}" method="POST">
-        @csrf
-        @method('DELETE')
-        <button type="submit">Delete</button>
-    </form>--}}
     <a href="{{ route('students.index') }}">Back to students list</a>
 </body>
 </html>
