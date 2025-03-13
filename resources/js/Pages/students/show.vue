@@ -26,7 +26,11 @@ defineProps({
             <p><strong>Address:</strong> {{ student.address }}</p>
             <p>
                 <strong>Final Year:</strong>
-                {{ student.Is_final_year }}
+                {{
+                    student.is_final_year == 1 || student.is_final_year === true
+                        ? "Yes"
+                        : "No"
+                }}
             </p>
 
             <a
