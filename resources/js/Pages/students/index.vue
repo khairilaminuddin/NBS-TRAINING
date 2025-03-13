@@ -11,14 +11,19 @@ defineProps({
 
 // Navigate to edit page
 const editStudent = (id) => {
-    router.get(route("students.edit", id));
+    router.get(route("students.edit", { id }));
 };
 
 // Delete student function
 const deleteStudent = (id) => {
     if (confirm("Are you sure you want to delete this student?")) {
-        router.delete(route("students.destroy", id));
+        router.delete(route("students.destroy", { id }));
     }
+};
+
+// Navigate to create student page
+const createStudent = () => {
+    router.get(route("students.create"));
 };
 </script>
 
@@ -55,7 +60,7 @@ const deleteStudent = (id) => {
                     <td class="px-4 py-2 border">{{ student.id }}</td>
                     <td class="px-4 py-2 border">
                         <a
-                            :href="route('students.show', student.id)"
+                            :href="route('students.show', { id: student.id })"
                             class="text-blue-600 hover:underline"
                         >
                             {{ student.name }}
@@ -93,5 +98,11 @@ const deleteStudent = (id) => {
                 </tr>
             </tbody>
         </table>
+        <button
+            class="mt-4 px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 transition"
+            @click="createStudent"
+        >
+            Create Student
+        </button>
     </AppLayout>
 </template>
