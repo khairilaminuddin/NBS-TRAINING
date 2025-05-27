@@ -31,7 +31,7 @@ const createStudent = () => {
     <AppLayout title="Students">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Student List
+                PSMZA Student List
             </h2>
         </template>
 
