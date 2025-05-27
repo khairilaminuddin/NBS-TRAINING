@@ -17,4 +17,9 @@ export default defineConfig({
             },
         }),
     ],
+    server: {
+        host: '0.0.0.0',
+        port: 5173,       // default Vite port
+        strictPort: true, // optional: prevents Vite from switching ports if 5173 is busy
+    },
 });
